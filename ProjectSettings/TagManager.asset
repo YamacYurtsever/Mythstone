@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Jack Generator
+  - Amethyst
+  - Diamond
+  - Emerald
+  - Ruby
+  - Sapphire
+  - Topaz
+  - Gem Generator
+  - Coal
+  - SceneLoader
+  - LevelsUnlock
+  - Break Counter
+  - Special Gem Spawner
+  - Gem Storage
+  - Jack Storage
+  - DinoTooth
+  - Lava
+  - Super
+  - Score Text
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1531115209
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0

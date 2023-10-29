@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8334172548638257226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594998793187506206}
+  - component: {fileID: 1291468381046743729}
+  m_Layer: 0
+  m_Name: Jack Generator
+  m_TagString: Jack Generator
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594998793187506206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334172548638257226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291468381046743729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334172548638257226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b08ae7e47a961c459567c7f03180f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jackStorage: {fileID: 0}
+  jacks:
+  - {fileID: 2488721060234970240, guid: dc95dd84f84a80f4fa7053142fd6e661, type: 3}
+  - {fileID: 2187045353057628951, guid: e8754efd708c0204d84beb5b5c943e03, type: 3}
+  - {fileID: 4345709994628325255, guid: 915f32fe0767285468da213e4dd6720f, type: 3}
+  - {fileID: 5015437546173245460, guid: e03c34a023d77db46829333afc89e09f, type: 3}
+  - {fileID: 2934825562580114484, guid: 0ab539c300ec6a74091a51d262a121eb, type: 3}
+  - {fileID: 229651269997401251, guid: b308e7bc5107c1f4285d918e3e391a57, type: 3}
+  spawnHeight: -5.5
+  spawnGapX: 0.85
+  jackNumber: 25
+  throwSpeed: 10
+  throwsBeforeNewGems: 2
+  gemGenerator: {fileID: 0}
