@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2620779514258720450}
   - component: {fileID: 91299663104581913}
   - component: {fileID: 3207359107090635022}
-  - component: {fileID: -93988466499803066}
   - component: {fileID: -4348993517560061918}
+  - component: {fileID: -93988466499803066}
+  - component: {fileID: 4445599477057548489}
   m_Layer: 0
   m_Name: Super
   m_TagString: Super
@@ -132,19 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-93988466499803066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2653015156892177715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab79785187ab4d46a0fe0ac88d8f757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallSpeed: 10
 --- !u!50 &-4348993517560061918
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +160,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!114 &-93988466499803066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653015156892177715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab79785187ab4d46a0fe0ac88d8f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 10
+  gemScore: 50
+--- !u!114 &4445599477057548489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2653015156892177715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d1616840b1e104fb1b02ba2bf9f0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

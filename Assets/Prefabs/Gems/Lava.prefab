@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 871827247654447121}
   - component: {fileID: 480045345158860172}
   - component: {fileID: -7175863087419014878}
-  - component: {fileID: -7206037690943330297}
   - component: {fileID: -3879622494537134695}
+  - component: {fileID: -7206037690943330297}
+  - component: {fileID: 5351519674848994215}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Lava
@@ -132,19 +133,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-7206037690943330297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4521671893578512587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab79785187ab4d46a0fe0ac88d8f757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallSpeed: 10
 --- !u!50 &-3879622494537134695
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +160,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
+--- !u!114 &-7206037690943330297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521671893578512587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab79785187ab4d46a0fe0ac88d8f757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSpeed: 10
+  gemScore: 25
+--- !u!114 &5351519674848994215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521671893578512587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d1616840b1e104fb1b02ba2bf9f0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

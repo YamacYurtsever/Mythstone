@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 10
+  gemScore: 8
 --- !u!50 &-7711582404955344053
 Rigidbody2D:
   serializedVersion: 4

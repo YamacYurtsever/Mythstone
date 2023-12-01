@@ -35,4 +35,27 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadLastUnlockedLevelScene()
+    {
+        PlayerData data = SaveSystem.LoadDataOfPlayer();
+        List<bool> levelsUnlocked = data.levelsUnlocked;
+
+        int lastLevel = 0;      //level 1 last level value is 1
+        for (int i = 0; i < levelsUnlocked.Count; i++)
+        {
+            if(levelsUnlocked[i])
+            {
+                lastLevel = i + 1;
+            }
+        }
+
+        SceneManager.LoadScene(SaveSingleton.Instance.levelScenesStartIndex + lastLevel - 1);
+    }
+
+    public int GetCurrentSceneIndex()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        return currentSceneIndex;
+    }
 }

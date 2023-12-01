@@ -23,6 +23,10 @@ TagManager:
   - Lava
   - Super
   - Score Text
+  - Levels Menu
+  - Ingame UI Controls
+  - LevelsStarScore
+  - Gem Score Canvas
   layers:
   - Default
   - TransparentFX
@@ -62,4 +66,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Dialogue
+    uniqueID: 3111344387
     locked: 0
