@@ -27,6 +27,13 @@ TagManager:
   - Ingame UI Controls
   - LevelsStarScore
   - Gem Score Canvas
+  - Mode Text
+  - Game Mode Manager
+  - Music Sources
+  - Sound Sources
+  - Mode Image
+  - Mode Text 2
+  - Mode Image 2
   layers:
   - Default
   - TransparentFX

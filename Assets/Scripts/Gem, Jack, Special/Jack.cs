@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Jack : MonoBehaviour
 {
+    public int jackorder;
+
     private GemGenerator gemGenerator;
 
     private void Start()

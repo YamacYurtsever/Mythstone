@@ -7,6 +7,7 @@ public class GemGenerator : MonoBehaviour
 {
     private Transform gemStorage;
     private SceneLoader sceneLoader;
+    private GameModeManager gameModeManager;
 
     [Serializable]
     public struct Gem
@@ -322,7 +323,7 @@ public class GemGenerator : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         if (gemScoreCanvas.transform.childCount != 0)
-            yield return new WaitForSeconds(gemScoreCanvas.GetComponent<GemScoreDisplayer>().fadeOutTime);
+            yield return new WaitUntil(() => gemScoreCanvas.transform.childCount == 0);
         MoveAndGenerateRows();
         generatingRow = false;
     }
@@ -366,24 +367,19 @@ public class GemGenerator : MonoBehaviour
         return false;
     }
 
-    public bool StartCheckIfMoreRowsComing()
-    {
-        if (currentRowNumber < startRowNum)
-        {
-            return true;
-        }
-        return false;
-    }
-
     private void Awake()
     {
         gemStorage = GameObject.FindGameObjectWithTag("Gem Storage").transform;
         sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gemScoreCanvas = GameObject.FindGameObjectWithTag("Gem Score Canvas");
+        gameModeManager = GameObject.FindGameObjectWithTag("Game Mode Manager").GetComponent<GameModeManager>();
     }
 
     private void Start()
     {
+        if (gameModeManager.jacksLeft || gameModeManager.timeLeft)
+            rowNumber = 1000;
+
         gemMap = GenerateGemMap();
 
         //PrintGemMap();
@@ -391,6 +387,21 @@ public class GemGenerator : MonoBehaviour
         for (int i = 0; i < startRowNum; i++)
         {
             MoveAndGenerateRows();
+        }
+
+        if (gameModeManager.timeLeft == true)
+        {
+            StartCoroutine(timeLeftModeAutoGenerate());
+        }
+    }
+
+    private IEnumerator timeLeftModeAutoGenerate()
+    {
+        yield return new WaitForSeconds(gameModeManager.timeLeftAutoGenerateRowInterval);
+        if (gameModeManager.currentTimeLeft > 0)
+        {
+            MoveAndGenerateRowsTrigger();
+            StartCoroutine(timeLeftModeAutoGenerate());
         }
     }
 }

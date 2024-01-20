@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LevelOverCheck : MonoBehaviour
 {
-    public float checkLoopTime = 0.2f;
-    public float beforeEndDelay = 1.5f;
+    public float beforeWinDelay = 1.5f;
+    public GameObject levelEndScreenPrefab;
 
     private Transform gemStorage;
     private GemGenerator gemGenerator;
     private SceneLoader sceneLoader;
     private Score scoreScript;
+    private GameModeManager gameModeManager;
 
 
     private void Awake()
@@ -19,24 +20,19 @@ public class LevelOverCheck : MonoBehaviour
         gemStorage = GameObject.FindGameObjectWithTag("Gem Storage").transform;
         gemGenerator = GameObject.FindGameObjectWithTag("Gem Generator").GetComponent<GemGenerator>();
         scoreScript = GameObject.FindGameObjectWithTag("Score Text").GetComponent<Score>();
+        gameModeManager = GameObject.FindGameObjectWithTag("Game Mode Manager").GetComponent<GameModeManager>();
     }
 
-    private void Start()
+    bool levelEndScreenOpened = false;
+    private void Update()
     {
-        StartCoroutine(CheckIfNoGemsCoroutine());
-    }
+        if ((gameModeManager.gemsLeft && CheckIfNoGems() ||
+            gameModeManager.jacksLeft && !CheckIfNoGems() && gameModeManager.jackCount <= 0 ||
+            gameModeManager.timeLeft && ((int)(gameModeManager.timeLeftLimit - (Time.time - gameModeManager.startTime)) <= 0)) && !levelEndScreenOpened)
+            StartCoroutine(WinAfterWait());
 
-    IEnumerator CheckIfNoGemsCoroutine()
-    {
-        if (CheckIfNoGems())                                    //when there isnt this delay, it sees gemstorage is empty and ends level as soon as it starts, might be a problem later
-        {
-            StartCoroutine(EndAfterWait());
-        }
-        else
-        {
-            yield return new WaitForSeconds(checkLoopTime);         //there needs to be a delay before this coroutine checks the if so gem generator has time to fill the gem storage
-            yield return StartCoroutine(CheckIfNoGemsCoroutine());
-        }
+        else if ((gameModeManager.gemsLeft && gameModeManager.jackCount == 0) && !levelEndScreenOpened)
+            StartCoroutine(LoseAfterWait());
     }
 
     public bool CheckIfNoGems()
@@ -45,23 +41,31 @@ public class LevelOverCheck : MonoBehaviour
         {
             if (!gemGenerator.CheckIfMoreRowsComing())
                 return true;
-            else if (!gemGenerator.StartCheckIfMoreRowsComing())
+            else if (gameModeManager.timeLeft != true)
                 gemGenerator.MoveAndGenerateRowsTrigger();
         }
-
         return false;
     }
 
-    IEnumerator EndAfterWait()
+    private IEnumerator WinAfterWait()
     {
-        yield return new WaitForSeconds(beforeEndDelay);
-        EndLevel();
+        levelEndScreenOpened = true;
+        yield return new WaitForSeconds(beforeWinDelay);
+        WinLevel();
     }
 
-    public void EndLevel()
+    private IEnumerator LoseAfterWait()
+    {
+        levelEndScreenOpened = true;
+        yield return new WaitForSeconds(beforeWinDelay + 0.5f);
+        sceneLoader.LoadStartScene();
+    }
+
+    public void WinLevel()
     {
         UnlockNextLevelandSaveLevelandScore();
-        sceneLoader.LoadNextScene();
+        // gamemode time 0
+        Instantiate(levelEndScreenPrefab);
     }
 
     private void UnlockNextLevelandSaveLevelandScore()

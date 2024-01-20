@@ -19,6 +19,14 @@ public class LevelPopUpUI : MonoBehaviour
     public Sprite starFullSprite;
     public Sprite starEmptySprite;
 
+    [Header("Gamemode Sprites")]
+    public Sprite gemImage;
+    public Sprite timedImage;
+    public Sprite jackImage;
+
+    public Image levelGamemodeImage;
+    private SaveSingleton.Gamemode levelGamemode;
+
     private SceneLoader sceneLoader;
     private TextMeshProUGUI star2Text;
     private TextMeshProUGUI star3Text;
@@ -45,6 +53,25 @@ public class LevelPopUpUI : MonoBehaviour
 
         // Sets trophy active if all 3 stars open
         CheckTrophy();
+
+        // Set Level Gamemode
+        levelGamemode = SaveSingleton.Instance.levelGamemodes[levelNumber - 1];
+
+        switch (levelGamemode)
+        {
+            case SaveSingleton.Gamemode.Gem:
+                levelGamemodeImage.sprite = gemImage;
+                break;
+            case SaveSingleton.Gamemode.Jack:
+                levelGamemodeImage.sprite = jackImage;
+                break;
+            case SaveSingleton.Gamemode.Timed:
+                levelGamemodeImage.sprite = timedImage;
+                break;
+            default:
+                Debug.LogError("zort");
+                break;
+        }
     }
 
     private void SetStars()

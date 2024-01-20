@@ -58,16 +58,22 @@ MonoBehaviour:
   - prefab: {fileID: 229651269997401251, guid: b308e7bc5107c1f4285d918e3e391a57, type: 3}
     probabilityWeight: 50
   - prefab: {fileID: 229651269997401251, guid: 441979a30d4228e4cb7620e8edb1978f, type: 3}
-    probabilityWeight: 25
+    probabilityWeight: 20
   - prefab: {fileID: 229651269997401251, guid: 880f3a611fcc1fd4099980e9d19c4e1c, type: 3}
-    probabilityWeight: 25
+    probabilityWeight: 20
   - prefab: {fileID: 229651269997401251, guid: c61b605ec319a9341a6eec19a0c1e8d3, type: 3}
-    probabilityWeight: 25
+    probabilityWeight: 20
   - prefab: {fileID: 229651269997401251, guid: 00422d7a611a34c40a39c66365fe6aac, type: 3}
-    probabilityWeight: 25
+    probabilityWeight: 20
   spawnHeight: -5.5
   spawnGapX: 0.9
   reloadDistance: 1.5
-  jackNumber: 35
+  jackNumber: 30
+  currentJackNumber: 0
   throwSpeed: 10
   throwsBeforeNewGems: 2
+  flying: 0
+  maxJacksShown: 2
+  jackPositions:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}

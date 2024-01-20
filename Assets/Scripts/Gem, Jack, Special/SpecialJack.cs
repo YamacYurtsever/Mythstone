@@ -5,8 +5,6 @@ using UnityEngine;
 public class SpecialJack : MonoBehaviour
 {
     private GemGenerator gemGenerator;
-    private Vector2[] lavaDirections;
-    private Vector2[] superDirections;
     private Vector2 collisionPosition;
     private Collider2D collisionCol;
     private GameObject gemStorage;
@@ -83,15 +81,18 @@ public class SpecialJack : MonoBehaviour
 
     private void DestroyLava()
     {
-        foreach (Vector2 direction in lavaDirections)
+        for (int i = -1; i < 2; i++)
         {
-            Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x, collisionPosition.y) + direction);
-            if (gemCollider != null)
+            for (int j = -1; j < 2; j++)
             {
-                if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
-                    gemCollider.GetComponent<SpecialGem>().SpecialGemDestroyer();
-                else
-                    gemCollider.GetComponent<Gem>().DestroyIt();
+                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x + j * gemGenerator.spawnGapX, collisionPosition.y + i * gemGenerator.spawnGapY));
+                if (gemCollider != null)
+                {
+                    if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
+                        gemCollider.GetComponent<SpecialGem>().SpecialGemDestroyer();
+                    else
+                        gemCollider.GetComponent<Gem>().DestroyIt();
+                }
             }
         }
     }
@@ -111,7 +112,7 @@ public class SpecialJack : MonoBehaviour
             float startY = gemGenerator.spawnHeight - gemGenerator.screenRowNumber * gemGenerator.spawnGapY;
             for (int i = 0; i < gemGenerator.screenRowNumber; i++)
             {
-                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x + j, startY));
+                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x + j * gemGenerator.spawnGapX, startY));
                 if (gemCollider != null)
                 {
                     if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
@@ -133,7 +134,7 @@ public class SpecialJack : MonoBehaviour
             float startX = 0 - ((gemGenerator.columnNumber / 2) * gemGenerator.spawnGapX);
             for (int i = 0; i < gemGenerator.columnNumber; i++)
             {
-                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(startX, collisionPosition.y + j));
+                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(startX, collisionPosition.y + j * gemGenerator.spawnGapY));
                 if (gemCollider != null && collisionPosition.y + j >= limitY)
                 {
                     if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
@@ -152,7 +153,7 @@ public class SpecialJack : MonoBehaviour
         {
             for (int j = -2; j < 3; j++)
             {
-                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x + i, collisionPosition.y + j));
+                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(collisionPosition.x + j * gemGenerator.spawnGapX, collisionPosition.y + i * gemGenerator.spawnGapY));
                 if (gemCollider != null)
                 {
                     if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
@@ -176,18 +177,5 @@ public class SpecialJack : MonoBehaviour
     {
         gemGenerator = GameObject.FindGameObjectWithTag("Gem Generator").GetComponent<GemGenerator>();
         gemStorage = GameObject.FindGameObjectWithTag("Gem Storage");
-
-        lavaDirections = new Vector2[]
-        {
-            new Vector2(0, 0),
-            new Vector2(gemGenerator.spawnGapX, 0),
-            new Vector2(gemGenerator.spawnGapX, gemGenerator.spawnGapY),
-            new Vector2(gemGenerator.spawnGapX, -gemGenerator.spawnGapY),
-            new Vector2(-gemGenerator.spawnGapX, 0),
-            new Vector2(-gemGenerator.spawnGapX, gemGenerator.spawnGapY),
-            new Vector2(-gemGenerator.spawnGapX, -gemGenerator.spawnGapY),
-            new Vector2(0, gemGenerator.spawnGapY),
-            new Vector2(0, -gemGenerator.spawnGapY)
-        };
     }
 }

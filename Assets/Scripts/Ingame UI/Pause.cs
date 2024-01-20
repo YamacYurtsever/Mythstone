@@ -6,12 +6,6 @@ public class Pause : MonoBehaviour
 {
     public bool paused = false;
 
-    JackGenerator jackGenerator;
-
-    private void Awake()
-    {
-        jackGenerator = GameObject.FindGameObjectWithTag("Jack Generator").GetComponent<JackGenerator>();
-    }
 
     public void PauseTime()
     {

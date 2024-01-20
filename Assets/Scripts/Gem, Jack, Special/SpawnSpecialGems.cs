@@ -10,6 +10,9 @@ public class SpawnSpecialGems : MonoBehaviour
     private Transform gemStorage;
     private Score score;
     private GemScoreDisplayer gemScoreDisplayer;
+    private GameModeManager gameModeManager;
+    private Vector2[] directions;
+    private GemGenerator gemGenerator;
 
     private void Awake()
     {
@@ -17,6 +20,16 @@ public class SpawnSpecialGems : MonoBehaviour
         gemStorage = GameObject.FindGameObjectWithTag("Gem Storage").transform;
         score = GameObject.FindGameObjectWithTag("Score Text").GetComponent<Score>();
         gemScoreDisplayer = GameObject.FindGameObjectWithTag("Gem Score Canvas").GetComponent<GemScoreDisplayer>();
+        gameModeManager = GameObject.FindGameObjectWithTag("Game Mode Manager").GetComponent<GameModeManager>();
+        gemGenerator = GameObject.FindGameObjectWithTag("Gem Generator").GetComponent<GemGenerator>();
+
+        directions = new Vector2[]
+{
+            new Vector2(gemGenerator.spawnGapX, 0),
+            new Vector2(-gemGenerator.spawnGapX, 0),
+            new Vector2(0, gemGenerator.spawnGapY),
+            new Vector2(0, -gemGenerator.spawnGapY)
+        };
     }
 
     public void Trigger(int gemScore)
@@ -52,15 +65,19 @@ public class SpawnSpecialGems : MonoBehaviour
                 SpecialGemSpawnerTrigger(specialGems[3]);
                 break;
             case 6:
+                SpecialGemSpawnerTrigger(specialGems[3]);
                 score.multiplier = 2;
                 break;
             case 7:
+                SpecialGemSpawnerTrigger(specialGems[3]);
                 score.multiplier = 3;
                 break;
             case 8:
+                SpecialGemSpawnerTrigger(specialGems[3]);
                 score.multiplier = 4;
                 break;
             case 9:
+                SpecialGemSpawnerTrigger(specialGems[3]);
                 score.multiplier = 5;
                 break;
             default:
@@ -76,9 +93,13 @@ public class SpawnSpecialGems : MonoBehaviour
     private IEnumerator SpecialGemSpawner(GameObject obj)
     {
         yield return new WaitForSeconds(gemScoreDisplayer.GetComponent<GemScoreDisplayer>().fadeOutTime);
-        GameObject newGem = Instantiate(obj);
-        newGem.transform.position = breakCounter.highestGemPos;
-        newGem.transform.parent = gemStorage;
+        if (HasConnection(breakCounter.highestGemPos))
+        {
+            GameObject newGem = Instantiate(obj);
+            newGem.transform.position = breakCounter.highestGemPos;
+            newGem.transform.parent = gemStorage;
+            gameModeManager.gemCount++;
+        }
     }
 
     IEnumerator IncreaseGroupScoreWaiter(int gemScore)
@@ -93,8 +114,21 @@ public class SpawnSpecialGems : MonoBehaviour
     {
         foreach (Vector2 gemPos in breakCounter.gemScorePositions)
         {
-            gemScoreDisplayer.DisplayGemScore(breakCounter.gemScore * score.multiplier, gemPos);
+            gemScoreDisplayer.DisplayGemScore(breakCounter.gemScore * score.multiplier, gemPos, breakCounter.gemTag);
         }
         breakCounter.gemScorePositions.Clear();
+    }
+
+    private bool HasConnection(Vector2 specialGemPos)
+    {
+        Vector2 currentPoint = specialGemPos;
+        foreach (Vector2 direction in directions)
+        {
+            Vector2 adjacentPoint = currentPoint + direction;
+            Collider2D adjacentCollider = Physics2D.OverlapPoint(adjacentPoint);
+            if (adjacentCollider != null || adjacentPoint.y == gemGenerator.spawnHeight)
+                return true;
+        }
+        return false;
     }
 }

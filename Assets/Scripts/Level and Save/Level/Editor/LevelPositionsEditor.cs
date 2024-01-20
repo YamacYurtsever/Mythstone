@@ -19,9 +19,19 @@ public class LevelPositionsEditor : Editor
         LevelPositionsInspector levelPositionsInspector = (LevelPositionsInspector)target;
         EditorGUILayout.PropertyField(m_levelPositions, new GUIContent("Levels Positions"));
 
-        if (GUILayout.Button("Level Button Positions"))
+        if (GUILayout.Button("Level Button Positions Method 1"))
         {
             levelPositionsInspector.AdjustLevelButtonPositions();
+        }
+
+        if (GUILayout.Button("Level Button Positions Method 2"))
+        {
+            levelPositionsInspector.AdjustLevelButtonPositionsMethod2();
+        }
+
+        if (GUILayout.Button("Save Level Button Positions"))
+        {
+            levelPositionsInspector.SaveLevelPositionsToList();
         }
 
         serializedObject.ApplyModifiedProperties();

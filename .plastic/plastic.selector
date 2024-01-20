@@ -1,0 +1,4 @@
+repository "Mythstone@yamacyurtsever@cloud"
+  path "/"
+    br "/main"
+    co "/main"

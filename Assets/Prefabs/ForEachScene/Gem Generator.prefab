@@ -67,16 +67,16 @@ MonoBehaviour:
     probabilityWeight: 25
     canNotBeGrouped: 1
   - prefab: {fileID: 1545743562018066634, guid: ee7b47f2496db3145b46d76227c227f7, type: 3}
-    probabilityWeight: 50
+    probabilityWeight: 20
     canNotBeGrouped: 1
   - prefab: {fileID: 1545743562018066634, guid: e5f3300a00cb1f649bbbbfb516877fab, type: 3}
-    probabilityWeight: 50
+    probabilityWeight: 20
     canNotBeGrouped: 1
   - prefab: {fileID: 4521671893578512587, guid: 98049d5cfff576e419072e7ceb3fd576, type: 3}
-    probabilityWeight: 50
+    probabilityWeight: 20
     canNotBeGrouped: 1
   - prefab: {fileID: 2653015156892177715, guid: 5f893cf5e16057b44833db638adf52ee, type: 3}
-    probabilityWeight: 50
+    probabilityWeight: 20
     canNotBeGrouped: 1
   gemClusterProbs:
   - clusterSize: 3
@@ -93,5 +93,5 @@ MonoBehaviour:
   rowNumber: 12
   columnNumber: 5
   screenRowNumber: 8
-  screenColumnNumber: 5
   startRowNum: 3
+  generatingRow: 0

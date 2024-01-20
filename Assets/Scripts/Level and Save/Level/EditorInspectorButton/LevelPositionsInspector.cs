@@ -10,4 +10,14 @@ public class LevelPositionsInspector : MonoBehaviour
     {
         levelPositions.AdjustLevelButtonPositions();
     }
+
+    public void AdjustLevelButtonPositionsMethod2()
+    {
+        levelPositions.AdjustLevelButtonPositionsMethod2();
+    }
+
+    public void SaveLevelPositionsToList()
+    {
+        levelPositions.SaveLevelPositionsToList();
+    }
 }

@@ -34,4 +34,30 @@ public class LevelPositions : MonoBehaviour
             levelStorage.GetChild(i).GetComponent<RectTransform>().anchoredPosition = levelPos;
         }
     }
+
+    public List<Vector2> levelPositionsList;
+
+    public void SaveLevelPositionsToList()
+    {
+        levelStorage = transform;
+        levelCount = levelStorage.childCount;
+
+        levelPositionsList.Clear();
+        for (int i = 0; i < levelCount; i++)
+        {
+            levelPositionsList.Add(levelStorage.GetChild(i).GetComponent<RectTransform>().anchoredPosition);
+        }
+    }
+
+    public void AdjustLevelButtonPositionsMethod2()
+    {
+        levelStorage = transform;
+        levelCount = levelStorage.childCount;
+
+        for (int i = 0; i < levelCount; i++)
+        {
+            Vector2 levelPos = levelPositionsList[i];
+            levelStorage.GetChild(i).GetComponent<RectTransform>().anchoredPosition = levelPos;
+        }
+    }
 }

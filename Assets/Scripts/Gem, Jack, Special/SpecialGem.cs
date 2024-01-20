@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpecialGem : MonoBehaviour
 {
     private GemGenerator gemGenerator;
-    Vector2[] lavaDirections;
     Vector2[] superDirections;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,15 +67,18 @@ public class SpecialGem : MonoBehaviour
     {
         GetComponent<Gem>().DestroyIt();
 
-        foreach (Vector2 direction in lavaDirections)
+        for (int i = -1; i < 2; i++)
         {
-            Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(transform.position.x, transform.position.y) + direction);
-            if (gemCollider != null)
+            for (int j = -1; j < 2; j++)
             {
-                if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
-                    gemCollider.GetComponent<SpecialGem>().SpecialGemDestroyer();
-                else
-                    gemCollider.GetComponent<Gem>().DestroyIt();
+                Collider2D gemCollider = Physics2D.OverlapPoint(new Vector2(transform.position.x + j * gemGenerator.spawnGapX, transform.position.y + i * gemGenerator.spawnGapY));
+                if (gemCollider != null && !(i == 0 && j == 0))
+                {
+                    if (gemCollider.tag == "DinoTooth" || gemCollider.tag == "Lava" || gemCollider.tag == "Super")
+                        gemCollider.GetComponent<SpecialGem>().SpecialGemDestroyer();
+                    else
+                        gemCollider.GetComponent<Gem>().DestroyIt();
+                }
             }
         }
     }
@@ -103,18 +105,6 @@ public class SpecialGem : MonoBehaviour
     private void Awake()
     {
         gemGenerator = GameObject.FindGameObjectWithTag("Gem Generator").GetComponent<GemGenerator>();
-
-        lavaDirections = new Vector2[]
-        {
-            new Vector2(gemGenerator.spawnGapX, 0),
-            new Vector2(gemGenerator.spawnGapX, gemGenerator.spawnGapY),
-            new Vector2(gemGenerator.spawnGapX, -gemGenerator.spawnGapY),
-            new Vector2(-gemGenerator.spawnGapX, 0),
-            new Vector2(-gemGenerator.spawnGapX, gemGenerator.spawnGapY),
-            new Vector2(-gemGenerator.spawnGapX, -gemGenerator.spawnGapY),
-            new Vector2(0, gemGenerator.spawnGapY),
-            new Vector2(0, -gemGenerator.spawnGapY)
-        };
 
         superDirections = new Vector2[]
         {

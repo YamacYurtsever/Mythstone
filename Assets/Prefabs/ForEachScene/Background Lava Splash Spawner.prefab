@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lavaSplash: {fileID: 813889718985863718, guid: ba9726d970ec48648a061e108d5066a3, type: 3}
+  ypos: -3.2

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c8882bb561c5848a65fbcfcfdddb65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkLoopTime: 0.2
-  beforeEndDelay: 1.5
+  beforeWinDelay: 1
+  levelEndScreenPrefab: {fileID: 7540614141898300032, guid: 954559e7caee80a40ac7e8e84f1a8441, type: 3}

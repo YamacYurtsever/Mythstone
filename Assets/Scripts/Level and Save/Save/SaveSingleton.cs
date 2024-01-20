@@ -20,6 +20,7 @@ public class SaveSingleton : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+
         //ResetSaveData();
         PlayerData data = SaveSystem.LoadDataOfPlayer();
         levelGamemodes = data.levelGamemodes;
@@ -37,9 +38,9 @@ public class SaveSingleton : MonoBehaviour
                                           //0 to 7 to represent 8 possibilites of combinations of 3 stars.
     public enum Gamemode
     {
-        Normal,
+        Jack,
         Timed,
-        Blocks
+        Gem
     }
     
     public List<Gamemode> levelGamemodes;

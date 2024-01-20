@@ -20,6 +20,7 @@ public class LevelsUnlock : MonoBehaviour
 
     [Header("Level Design2 Settings")]
     public Sprite levelLockedSprite;
+    public Sprite levelUnlockedSprite;
     public Color lockedLevelColor2;
     private Color fullWhite;
 
@@ -61,7 +62,7 @@ public class LevelsUnlock : MonoBehaviour
                 //animasyon da olabilir
                 //last unlocked level already has animation
                 levelButtonStorage.GetChild(i).GetComponent<Button>().interactable = true;
-                levelButtonStorage.GetChild(i).GetComponent<Image>().sprite = null;
+                levelButtonStorage.GetChild(i).GetComponent<Image>().sprite = levelUnlockedSprite;
                 lastLevelUnlocked = i + 1;  //1st level is 1
 
                 starStorageforButton.gameObject.SetActive(true);
@@ -121,7 +122,7 @@ public class LevelsUnlock : MonoBehaviour
         }
         else
         {
-            lockImage.sprite = null;
+            lockImage.sprite = levelUnlockedSprite;
             lockImage.color = Color.white;
             lockImage.GetComponent<Button>().interactable = true;
         }
@@ -225,6 +226,10 @@ public class LevelsUnlock : MonoBehaviour
                 starStorageforButton.gameObject.SetActive(false);
                 levelButtonStorage.GetChild(i).GetComponent<Image>().sprite = levelLockedSprite;
                 levelButtonStorage.GetChild(i).GetComponent<Image>().color = lockedLevelColor2;
+            }
+            else
+            {
+                levelButtonStorage.GetChild(i).GetComponent<Image>().sprite = levelUnlockedSprite;
             }
         }
     }
