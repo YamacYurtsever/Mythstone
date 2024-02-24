@@ -26,8 +26,8 @@ public class LevelOverCheck : MonoBehaviour
     bool levelEndScreenOpened = false;
     private void Update()
     {
-        if ((gameModeManager.gemsLeft && CheckIfNoGems() ||
-            gameModeManager.jacksLeft && !CheckIfNoGems() && gameModeManager.jackCount <= 0 ||
+        if ((CheckIfNoGems() && gameModeManager.gemsLeft ||
+            gameModeManager.jacksLeft && gameModeManager.jackCount <= 0 ||
             gameModeManager.timeLeft && ((int)(gameModeManager.timeLeftLimit - (Time.time - gameModeManager.startTime)) <= 0)) && !levelEndScreenOpened)
             StartCoroutine(WinAfterWait());
 
@@ -39,10 +39,10 @@ public class LevelOverCheck : MonoBehaviour
     {
         if (gemStorage.childCount == 0)
         {
-            if (!gemGenerator.CheckIfMoreRowsComing())
-                return true;
-            else if (gameModeManager.timeLeft != true)
+            if (gemGenerator.CheckIfMoreRowsComing() && gameModeManager.timeLeft == false)
                 gemGenerator.MoveAndGenerateRowsTrigger();
+            else
+                return true;
         }
         return false;
     }

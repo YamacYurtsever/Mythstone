@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jacks:
   - prefab: {fileID: 2488721060234970240, guid: dc95dd84f84a80f4fa7053142fd6e661, type: 3}
-    probabilityWeight: 0
+    probabilityWeight: 50
   - prefab: {fileID: 2187045353057628951, guid: e8754efd708c0204d84beb5b5c943e03, type: 3}
     probabilityWeight: 50
   - prefab: {fileID: 4345709994628325255, guid: 915f32fe0767285468da213e4dd6720f, type: 3}
@@ -74,6 +74,4 @@ MonoBehaviour:
   throwsBeforeNewGems: 2
   flying: 0
   maxJacksShown: 2
-  jackPositions:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  jackImages: []

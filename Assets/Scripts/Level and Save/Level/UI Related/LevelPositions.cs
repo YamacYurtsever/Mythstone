@@ -10,6 +10,7 @@ public class LevelPositions : MonoBehaviour
     private int levelCount;
     private float levelStorageXMax;
 
+    // goes like a spiral staircase
     public void AdjustLevelButtonPositions()
     {
         levelStorage = transform;
@@ -37,6 +38,7 @@ public class LevelPositions : MonoBehaviour
 
     public List<Vector2> levelPositionsList;
 
+    // saves and adjusts level according to positions
     public void SaveLevelPositionsToList()
     {
         levelStorage = transform;

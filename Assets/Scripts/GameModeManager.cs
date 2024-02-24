@@ -6,17 +6,13 @@ using UnityEngine.UI;
 
 public class GameModeManager : MonoBehaviour
 {
-    public bool gemsLeft = false;
-    public bool jacksLeft = false;
-    public bool timeLeft = false;
+    public bool gemsLeft = false, jacksLeft = false, timeLeft = false;
     public int timeLeftLimit = 120;
     public int timeLeftAutoGenerateRowInterval = 5;
     public int gemCount, jackCount;
     public float startTime;
     public float currentTimeLeft;
-    public Sprite gemIcon;
-    public Sprite jackIcon;
-    public Sprite timeIcon;
+    public Sprite gemIcon, jackIcon, timeIcon;
 
     private TextMeshProUGUI modeText;
     private Image modeImage;
@@ -26,6 +22,7 @@ public class GameModeManager : MonoBehaviour
     private TextMeshProUGUI modeText2;
     private Image modeImage2;
 
+
     private void Awake()
     {
         modeText = GameObject.FindGameObjectWithTag("Mode Text").GetComponent<TextMeshProUGUI>();
@@ -34,6 +31,8 @@ public class GameModeManager : MonoBehaviour
         jackGenerator = GameObject.FindGameObjectWithTag("Jack Generator").GetComponent<JackGenerator>();
         modeText2 = GameObject.FindGameObjectWithTag("Mode Text 2").GetComponent<TextMeshProUGUI>();
         modeImage2 = GameObject.FindGameObjectWithTag("Mode Image 2").GetComponent<Image>();
+        modeText2.gameObject.SetActive(false);
+        modeImage2.gameObject.SetActive(false);
         sceneLoader = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
 
         // Set gamemode depending on save singleton gamemode list
@@ -67,8 +66,8 @@ public class GameModeManager : MonoBehaviour
         if (gemsLeft)
         {
             modeImage.sprite = gemIcon;
-            modeText2.enabled = true;
-            modeImage2.enabled = true;
+            modeText2.gameObject.SetActive(true);
+            modeImage2.gameObject.SetActive(true);
         }
         else if (jacksLeft)
             modeImage.sprite = jackIcon;

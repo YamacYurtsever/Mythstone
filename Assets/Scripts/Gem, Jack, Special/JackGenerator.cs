@@ -83,7 +83,7 @@ public class JackGenerator : MonoBehaviour
             // Generate new jack
             GameObject jackPrefab = jacks[GetRandomJackID()].prefab;
             GameObject newjack = Instantiate(jackPrefab, new Vector2(x, -20), Quaternion.identity,jackStorage);
-            x += 1;
+            x += 3;
             newjack.GetComponent<Jack>().jackorder = maxJacksShown;     //x
             jackImages[maxJacksShown - 1].sprite = newjack.GetComponent<SpriteRenderer>().sprite;               //x
             jackImages[maxJacksShown - 1].color = Color.white;       //x

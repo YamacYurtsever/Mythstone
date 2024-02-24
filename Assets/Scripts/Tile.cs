@@ -16,6 +16,23 @@ public class Tile : MonoBehaviour
     public void ThrowJackInput()
     {
         if (jackGenerator.flying == false && gemScoreCanvas.transform.childCount == 0)
-            jackGenerator.ThrowJack(transform.position);
+            ThrowJackUITile();  // Use other throw jack method if tile is in world space
+    }
+
+    // works if tile was in world space units
+    private void ThrowJackWorldSpaceTile()
+    {
+        jackGenerator.ThrowJack(transform.position);
+    }
+
+    // works if tile was in a UI canvas
+    private void ThrowJackUITile()
+    {
+        Vector2 uiPos = GetComponent<RectTransform>().position;
+
+
+        Vector2 screenPos = uiPos;
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+        jackGenerator.ThrowJack(worldPos);
     }
 }

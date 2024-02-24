@@ -201,7 +201,6 @@ public class Gem : MonoBehaviour
             Destroy(gameObject);
             destroyed = true;
             gameModeManager.gemCount--;
-            Debug.Log(transform.position); //DEBUG
             score.IncreaseScore(gemScore);
             gemScoreDisplayer.DisplayGemScore(gemScore, transform.position, gameObject.tag);
         }
