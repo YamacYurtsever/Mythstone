@@ -7,6 +7,7 @@ public class Gem : MonoBehaviour
 {
     public float fallSpeed = 10f;
     public int gemScore = 10;
+    public GameObject lavaDrop;
 
     private Animator animator;
     private GemGenerator gemGenerator;
@@ -198,7 +199,12 @@ public class Gem : MonoBehaviour
     {
         if (transform.position.y < gemGenerator.spawnHeight - (gemGenerator.screenRowNumber * gemGenerator.spawnGapY) + 0.5f && !destroyed)
         {
-            Destroy(gameObject);
+            // Spawn lava drop object
+            GameObject newLavaDrop = Instantiate(lavaDrop);
+            newLavaDrop.transform.position = new Vector2(transform.position.x, transform.position.y - 0.5f);
+
+            // Delete the gem
+            Destroy(gameObject); 
             destroyed = true;
             gameModeManager.gemCount--;
             score.IncreaseScore(gemScore);

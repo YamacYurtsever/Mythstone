@@ -23,7 +23,7 @@ public class JackGenerator : MonoBehaviour
     public int throwsBeforeNewGems = 2;
     public bool flying = false;
     public int maxJacksShown = 2;
-    public List<Image> jackImages;
+    public List<Image> jackImages;  // must be added manually
 
     private float defaultScale;
     private GameObject currentJack = null;
@@ -162,6 +162,11 @@ public class JackGenerator : MonoBehaviour
         defaultScale = jacks[0].prefab.transform.localScale.x;
         gemScoreCanvas = GameObject.FindGameObjectWithTag("Gem Score Canvas");
         gameModeManager = GameObject.FindGameObjectWithTag("Game Mode Manager").GetComponent<GameModeManager>();
+
+        Image upcomingJack = GameObject.FindGameObjectWithTag("Upcoming Jack Image").GetComponent<Image>();
+        Image currentJack = GameObject.FindGameObjectWithTag("Current Jack Image").GetComponent<Image>();
+        jackImages.Add(currentJack);
+        jackImages.Add(upcomingJack);
     }
 
     private void Start()

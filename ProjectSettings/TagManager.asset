@@ -34,6 +34,8 @@ TagManager:
   - Mode Image
   - Mode Text 2
   - Mode Image 2
+  - Upcoming Jack Image
+  - Current Jack Image
   layers:
   - Default
   - TransparentFX

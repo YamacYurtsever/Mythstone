@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class JackImage : MonoBehaviour
 {
+    // this way of adding jack images to jackImages public list of images in jackgenerator doesnt work if the UI This is attached to is inactive at start of game.
+
     public Image currentImage, comingImage;
     private GameObject jackGenerator;
     // Start is called before the first frame update

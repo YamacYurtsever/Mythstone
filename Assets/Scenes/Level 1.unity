@@ -648,14 +648,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Mode Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8506569307106497352, guid: 27fff015ecac2844e9d46ebb017f3dfe, type: 3}
-      propertyPath: gemsLeft
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8506569307106497352, guid: 27fff015ecac2844e9d46ebb017f3dfe, type: 3}
-      propertyPath: jacksLeft
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

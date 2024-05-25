@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 10
   gemScore: 8
+  lavaDrop: {fileID: 5240690215349407398, guid: 4f52f38dc90755942965f415dcb8bbc9, type: 3}
 --- !u!50 &-7711582404955344053
 Rigidbody2D:
   serializedVersion: 4

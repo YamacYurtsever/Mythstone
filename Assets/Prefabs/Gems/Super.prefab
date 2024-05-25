@@ -175,6 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSpeed: 10
   gemScore: 50
+  lavaDrop: {fileID: 5240690215349407398, guid: 4f52f38dc90755942965f415dcb8bbc9, type: 3}
 --- !u!114 &4445599477057548489
 MonoBehaviour:
   m_ObjectHideFlags: 0

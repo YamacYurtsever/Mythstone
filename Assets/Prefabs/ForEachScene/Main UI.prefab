@@ -727,7 +727,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675736852770979669}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e6bd61c29854a74e983d11b52dfadc1, type: 3}
   m_Name: 
@@ -1814,8 +1814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -254.15, y: -109}
-  m_SizeDelta: {x: 508.299, y: 292.813}
+  m_AnchoredPosition: {x: -255, y: -109.59}
+  m_SizeDelta: {x: 510, y: 294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3376403753411704773
 GameObject:
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 8136305742001235939}
   m_Layer: 5
   m_Name: Current Jack
-  m_TagString: Untagged
+  m_TagString: Current Jack Image
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2459,7 +2459,7 @@ GameObject:
   - component: {fileID: 403168576158449269}
   m_Layer: 5
   m_Name: Upcoming Jack
-  m_TagString: Untagged
+  m_TagString: Upcoming Jack Image
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3248,7 +3248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 57, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3535887935244417937
@@ -4567,7 +4567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17d0b0554e3506f429f162b08109acc7, type: 2}
   m_sharedMaterial: {fileID: 1367733795290878209, guid: 17d0b0554e3506f429f162b08109acc7, type: 2}
@@ -4965,7 +4965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 129.861, y: -121.212}
+  m_AnchoredPosition: {x: 139, y: -130}
   m_SizeDelta: {x: 259.722, y: 167.792}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8923869190105427962
@@ -5190,6 +5190,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.415, y: -130.411}
-  m_SizeDelta: {x: 412.831, y: 315.951}
+  m_AnchoredPosition: {x: 214.398, y: -109.59003}
+  m_SizeDelta: {x: 428.796, y: 294}
   m_Pivot: {x: 0.5, y: 0.5}

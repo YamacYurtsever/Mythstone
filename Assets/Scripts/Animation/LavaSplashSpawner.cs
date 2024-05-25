@@ -5,6 +5,7 @@ using UnityEngine;
 public class LavaSplashSpawner : MonoBehaviour
 {
     public GameObject lavaSplash;
+    public float interval = 4f;
     public float ypos = -3f;
 
     private void Start()
@@ -14,9 +15,9 @@ public class LavaSplashSpawner : MonoBehaviour
 
     IEnumerator SpawnLavaSplash()
     {
-        GameObject newLavaSplash = GameObject.Instantiate(lavaSplash);
+        GameObject newLavaSplash = Instantiate(lavaSplash);
         newLavaSplash.transform.position = new Vector2(Random.Range(-4f, 4f), ypos);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(interval);
         StartCoroutine(SpawnLavaSplash());
     }
 }

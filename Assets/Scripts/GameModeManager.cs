@@ -66,6 +66,7 @@ public class GameModeManager : MonoBehaviour
         if (gemsLeft)
         {
             modeImage.sprite = gemIcon;
+            modeImage2.sprite = jackIcon;
             modeText2.gameObject.SetActive(true);
             modeImage2.gameObject.SetActive(true);
         }
